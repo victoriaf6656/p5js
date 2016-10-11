@@ -1,0 +1,160 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+    <title>p5js Template</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.3/p5.js"></script>
+    
+    <script>
+        function setup() {
+            createCanvas(800,600);
+        }
+
+        function draw() {
+            // background(255,204,103)
+            //ear
+            fill(255,204,103)
+            stroke(0)
+            ellipseMode(CORNER);
+            ellipse(145,240,80,80)
+            
+            //head
+            fill(255,204,103)
+            curve(600,160,600,160,580,250,580,250)
+            curve(580,250,580,250,585,320,585,320)
+            curve(580,250,585,320,555,360,555,360)
+            curve(555,360,555,360,400,440,400,440)
+            curve(400,440,400,440,300,400,300,400)
+            curve(300,400,300,400,180,295,180,295)
+            line(180,295,150,175)
+            
+            //hair
+            fill(241,102,153)
+            // stroke(241,102,153)
+            stroke(0)
+            // strokeWeight()
+            curve(400,100,400,100,500,260,500,260)
+            curve(340,100,340,100,280,280,280,280)
+            curve(280,280,280,280,240,180,240,180)
+            curve(240,180,240,180,280,420,280,420)
+            curve(280,420,280,420,190,300,190,300)
+            curve(190,300,190,300,140,180,140,180)
+            line(260,260,130,380)
+            line(145,300,130,380)
+            line(145,300,80,320)
+            line(80,320,180,200)
+            line(120,260,60,220)
+            line(60,220,110,170)
+            line(180,200,60,120)
+            line(60,120,180,80)
+            line(130,100,60,0)
+            line(60,0,180,40)
+            line(150,35,180,0)
+            line(200,140,280,95)
+            line(320,90,260,0)
+            line(260,0,370,55)
+            line(360,60,460,0)
+            line(460,0,400,90)
+            line(440,40,540,0)
+            line(540,0,500,80)
+            line(530,30,660,0)
+            line(600,50,700,0)
+            line(700,0,600,120)
+            line(685,25,700,60)
+            line(620,100,720,40)
+            line(660,160,720,40)
+            
+            beginShape(TRIANGLE_STRIP);
+            // vertex(400,100);
+            // vertex(500,260);
+            vertex(340,100);
+            vertex(280,280);
+            vertex(340,100);
+            vertex(240,180);
+            vertex(280,420);
+            vertex(240,180);
+            vertex(190,300);
+            vertex(140,180);
+            vertex(190,300);
+            vertex(260,260);
+            vertex(130,380);
+            vertex(145,300);
+            vertex(260,260);
+            endShape();
+            // beginShape(TRIANGLE_STRIP);
+            // vertex(260,260);
+            // vertex(145,300);
+            // Vertex(180,200);
+            // vertex(260,260);
+            // vertex(145,300);
+            // vertex(120,260);
+            // Vertex(180,200);
+            // vertex(60,220);
+            // endShape();
+            
+            //triangleStrip(hair/top)
+            stroke(0)
+            beginShape(TRIANGLE_STRIP);
+            vertex(400,100);
+            vertex(395,110);
+            vertex(400,100);
+            vertex(390,100);
+            vertex(385,110);
+            vertex(390,100);
+            vertex(380,100);
+            vertex(375,110);
+            vertex(380,100);
+            vertex(370,100);
+            vertex(365,110);
+            vertex(370,100);
+            vertex(360,100);
+            vertex(355,110);
+            vertex(360,100);
+            vertex(350,100);
+            vertex(345,110);
+            vertex(350,100);
+            vertex(340,100);
+            endShape()
+            //eyebrow(left)
+            stroke(0)
+            
+            //eyebrow(right)
+            
+            //eye(left)
+            curve();
+            ellipse();
+            line();
+            line();
+            
+            //eye(right)
+            curve();
+            ellipse();
+            line();
+            line();
+            
+            //scarf
+            rect()
+            
+            //text
+            stroke(255,0,0)
+            // text(Natsu Dragneel-Fairy Tail)
+     
+        }
+    </script>
+</head>
+
+<body>
+    <div id="code" class="container-fluid">
+        <script src="https://gist-it.appspot.com/github/victoriaf6656/p5js/blob/gh-pages/zoog.html?footer=0"></script>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script>
+        $(window).bind("load", function() {
+            $('#code').before($('#defaultCanvas0').remove());
+        });
+    </script>
+</body>
+
+
+</html>
