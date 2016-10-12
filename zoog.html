@@ -11,7 +11,6 @@
         }
 
         function draw() {
-            // background(255,204,103)
             //ear
             fill(255,204,103)
             stroke(0)
@@ -30,10 +29,9 @@
             
             //hair
             fill(241,102,153)
-            // stroke(241,102,153)
-            stroke(0)
+            stroke(241,102,153)
+            // stroke(0)
             // strokeWeight()
-            curve(400,100,400,100,500,260,500,260)
             curve(340,100,340,100,280,280,280,280)
             curve(280,280,280,280,240,180,240,180)
             curve(240,180,240,180,280,420,280,420)
@@ -65,8 +63,6 @@
             line(660,160,720,40)
             
             beginShape(TRIANGLE_STRIP);
-            // vertex(400,100);
-            // vertex(500,260);
             vertex(340,100);
             vertex(280,280);
             vertex(340,100);
@@ -81,19 +77,31 @@
             vertex(145,300);
             vertex(260,260);
             endShape();
-            // beginShape(TRIANGLE_STRIP);
-            // vertex(260,260);
-            // vertex(145,300);
-            // Vertex(180,200);
-            // vertex(260,260);
-            // vertex(145,300);
-            // vertex(120,260);
-            // Vertex(180,200);
-            // vertex(60,220);
-            // endShape();
+ 
             
-            //triangleStrip(hair/top)
-            stroke(0)
+            //hair(right side/bangs)
+            beginShape(TRIANGLE_STRIP);
+            vertex(400,100);
+            vertex(500,260);
+            vertex(400,100);
+            vertex(500,100);
+            vertex(510,130);
+            vertex(500,100);
+            vertex(640,280);
+            vertex(500,100);
+            vertex(680,100);
+            vertex(635,240);
+            vertex(615,110);
+            vertex(580,280);
+            vertex(680,240);
+            vertex(595,190);
+            vertex(660,240);
+            vertex(740,140);
+            vertex(610,130);
+            vertex(740,140);
+            endShape()
+            
+            // //triangleStrip(hair/top)
             beginShape(TRIANGLE_STRIP);
             vertex(400,100);
             vertex(395,110);
@@ -115,25 +123,72 @@
             vertex(350,100);
             vertex(340,100);
             endShape()
+            
             //eyebrow(left)
             stroke(0)
+            line(280,180,380,200)
+            line(380,200,375,240)
             
             //eyebrow(right)
-            
+            line(540,200,460,220)
+            line(460,220,465,260)
             //eye(left)
-            curve();
-            ellipse();
-            line();
-            line();
+            curve(245,280,245,280,260,220,260,220);
+            curve(260,220,260,220,360,240,360,240);
+            curve(360,240,360,240,360,280,360,280);
+            fill(0)
+            ellipseMode(CORNER);
+            ellipse(265,225,60,90)
+            fill(255,255,255)
+            beginShape(TRIANGLES);
+            vertex(320,290)
+            vertex(300,270)
+            vertex(330,260)
+            vertex(320,290)
+            endShape()
             
             //eye(right)
-            curve();
-            ellipse();
-            line();
-            line();
+            curve(560,240,560,240,570,300,570,300);
+            curve(560,240,560,240,480,260,480,260);
+            curve(480,260,480,260,470,320,470,320);
+            fill(0)
+            ellipseMode(CORNER);
+            ellipse(475,260,50,80)
+            fill(255,255,255)
+            beginShape(TRIANGLES);
+            vertex();
+            vertex();
+            vertex();
+            vertex();
+            endShape()
             
             //scarf
+            rectMode(CORNERS);
             rect()
+            line();
+            line();
+            line();
+            line();
+            line();
+            line();
+            line();
+            //mouth
+            fill(0)
+            beginShape();
+            vertex(300,400);
+            vertex(320,360);
+            vertex(480,360);
+            vertex(490,385);
+            endShape();
+            fill(255,255,255)
+            beginShape();
+            vertex(320,360);
+            vertex(320,400);
+            vertex(340,390);
+            vertex(360,390);
+            vertex(460,390);
+            vertex(480,360);
+            endShape();
             
             //text
             stroke(255,0,0)
