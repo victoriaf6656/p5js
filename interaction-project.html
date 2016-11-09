@@ -1,0 +1,83 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+    <title>p5js Template</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.3/p5.js"></script>
+    
+    <script>
+        var centerX,centerY
+        // var scale
+        function setup() {
+            createCanvas(800,600);
+        }
+
+        function draw() {
+            background(0)
+            stroke(0)
+            frameRate(1)
+            fill(0,random(255),random(255))
+            ellipse(590,300,80,80)
+            ellipse(590,300,50,50)
+            line(580,280,590,300)
+            line(590,300,600,280)
+            beginShape();
+            vertex(600,265)
+            vertex(600,100)
+            vertex(500,100)
+            vertex(450,100)
+            vertex(450,250)
+            vertex(470,250)
+            vertex(470,125)
+            vertex(580,125)
+            vertex(580,265)
+            endShape();
+            ellipse(450,250,80,80)
+            stroke(255)
+            line(410,210,0,210)
+            line(410,230,0,230)
+            line(410,250,0,250)
+            line(410,270,0,270)
+        }
+        function mouseDragged() {
+            //music note
+            fill(random(55), random(104), random(183))
+            rectMode(CORNER);
+            rect(50,100,50,20)
+            line(50,120,50,150)
+            ellipse(45,160,30,30)
+            line(100,120,100,150)
+            ellipse(95,160,30,30)
+        }
+        function keyPressed(){
+            frameRate(1)
+            stroke(0,0,random(255))
+            fill(random(255),random(255),random(255))
+            textStyle(ITALIC)
+            textSize(32)
+            text("Music saves my soul",300,400)
+        }
+        function mousePressed(){
+            frameRate(1)
+            // background(0,0,random(255))
+            beginShape();
+            endShape();
+        }
+        
+    </script>
+</head>
+
+<body>
+    <div id="code" class="container-fluid">
+        <script src="https://gist-it.appspot.com/github/victoriaf6656/p5js/blob/gh-pages/interaction-project.html?footer=0"></script>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script>
+        $(window).bind("load", function() {
+            $('#code').before($('#defaultCanvas0').remove());
+        });
+    </script>
+</body>
+
+
+</html>
