@@ -7,49 +7,61 @@
     
     <script>
         var centerX,centerY
-        // var scale
+        var scale
         function setup() {
             createCanvas(800,600);
         }
 
         function draw() {
+            centerX = 400
+            centerY = 300
+            scale = random(0.2,1);
             background(0)
+            
+            //headphones
             stroke(0)
             frameRate(1)
             fill(0,random(255),random(255))
-            ellipse(590,300,80,80)
-            ellipse(590,300,50,50)
-            line(580,280,590,300)
-            line(590,300,600,280)
+            ellipse(centerX+190,centerY,80,80)
+            ellipse(centerX+190,centerY,50,50)
+            line(centerX+180,centerY-20,centerX+190,centerY)
+            line(centerX+190,centerY,centerX+200,centerY-20)
             beginShape();
-            vertex(600,265)
-            vertex(600,100)
-            vertex(500,100)
-            vertex(450,100)
-            vertex(450,250)
-            vertex(470,250)
-            vertex(470,125)
-            vertex(580,125)
-            vertex(580,265)
+            vertex(centerX+200,centerY-35);
+            vertex(centerX+200,centerY-200);
+            vertex(centerX+100,centerY-200);
+            vertex(centerX+50,centerY-200);
+            vertex(centerX+50,centerY-50);
+            vertex(centerX+70,centerY-50);
+            vertex(centerX+70,centerY-175);
+            vertex(centerX+180,centerY-175);
+            vertex(centerX+180,centerY-35);
             endShape();
-            ellipse(450,250,80,80)
+            ellipse(centerX+50,centerY-50,80,80)
+            
+            // headphones cord
+            fill(0)
+            strokeWeight(5)
             stroke(255)
-            line(410,210,0,210)
-            line(410,230,0,230)
-            line(410,250,0,250)
-            line(410,270,0,270)
-        }
-        function mouseDragged() {
-            //music note
-            fill(random(55), random(104), random(183))
-            rectMode(CORNER);
-            rect(50,100,50,20)
-            line(50,120,50,150)
-            ellipse(45,160,30,30)
-            line(100,120,100,150)
-            ellipse(95,160,30,30)
+            beginShape();
+            vertex(centerX+180,centerY+40);
+            vertex(centerX+180,centerY+60);
+            vertex(centerX+220,centerY+60);
+            vertex(centerX+220,centerY+40);
+            endShape();
+            rect(centerX+190,centerY+60,20,300)
+            
+            //music lines
+            strokeWeight(1)
+            stroke(255)
+            line(centerX+10,centerY-90,0,centerY-90)
+            line(centerX+10,centerY-70,0,centerY-70)
+            line(centerX+10,centerY-50,0,centerY-50)
+            line(centerX+10,centerY-30,0,centerY-30)
+            
         }
         function keyPressed(){
+            //text
             frameRate(1)
             stroke(0,0,random(255))
             fill(random(255),random(255),random(255))
@@ -57,11 +69,16 @@
             textSize(32)
             text("Music saves my soul",300,400)
         }
+
         function mousePressed(){
-            frameRate(1)
-            // background(0,0,random(255))
-            beginShape();
-            endShape();
+            //music note
+            fill(random(55), random(104), random(183))
+            rectMode(CORNER);
+            rect(scale*300,scale*230,scale*50,scale*20)
+            line(scale*300,scale*250,scale*300,scale*280)
+            ellipse(scale*295,scale*290,scale*30,scale*30)
+            line(scale*350,scale*250,scale*350,scale*280)
+            ellipse(scale*345,scale*290,scale*30,scale*30)
         }
         
     </script>
