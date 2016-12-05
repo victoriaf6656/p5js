@@ -9,18 +9,13 @@
     var shade = 0
         function setup() {
             createCanvas(1000,600);
-            x = 300
-            y = 400
         }
 
         function draw() {
-            // background(65,105,225)
             fill(shade)
             ellipse(mouseX,mouseY,100,100)
-            
         }
-        strokeWeight(2)
-        function keyPressed() {
+        function keyPressed(){
             if (key == 'w' || key == 'W') {
                 fill(shade,255,0)
                 ellipse(mouseX,mouseY,50,50)
@@ -30,11 +25,11 @@
                 ellipse(mouseX,mouseY,50,50)
             }
             if (key == 's' || key == 'S') {
-                fill(shade +255,0,0)
+                fill(shade + 255,0,0)
                 ellipse(mouseX,mouseY,50,50)
             }
             else if(key == 'd' || key == 'D') {
-                fill(shade +255,255,0)
+                fill(shade + 255,255,0)
                 ellipse(mouseX,mouseY,50,50)
             }
         }
