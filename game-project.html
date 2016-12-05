@@ -12,25 +12,31 @@
         }
 
         function draw() {
-            fill(shade)
-            ellipse(mouseX,mouseY,100,100)
         }
         function keyPressed(){
             if (key == 'w' || key == 'W') {
                 fill(shade,255,0)
-                ellipse(mouseX,mouseY,50,50)
+                ellipse(mouseX,mouseY,100,100)
             }
             if(key == 'a' || key == 'A') {
                 fill(shade,0,255)
-                ellipse(mouseX,mouseY,50,50)
+                ellipse(mouseX,mouseY,100,100)
             }
             if (key == 's' || key == 'S') {
                 fill(shade + 255,0,0)
-                ellipse(mouseX,mouseY,50,50)
+                ellipse(mouseX,mouseY,100,100)
             }
             else if(key == 'd' || key == 'D') {
                 fill(shade + 255,255,0)
-                ellipse(mouseX,mouseY,50,50)
+                ellipse(mouseX,mouseY,100,100)
+            }
+            if(key == 'z' || key == 'Z') {
+                fill(shade)
+                ellipse(mouseX,mouseY,100,100)
+            }
+            else if(key == 'x' || key == 'X') {
+                fill(shade + 255)
+                ellipse(mouseX,mouseY,100,100)
             }
         }
     </script>
