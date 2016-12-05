@@ -6,84 +6,37 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.3/p5.js"></script>
     
     <script>
-    var x
-    var y
-    var score
-    var high_score
-    var avatar
-    var start
+    var shade = 0
         function setup() {
-            createCanvas(800,600);
+            createCanvas(1000,600);
             x = 300
-            y = 300
+            y = 400
         }
 
         function draw() {
-            background(65,105,225)
-            //game title
-            fill(66, 134, 244)
-            rectMode(CORNER)
-            rect(300,75,150,100)
-            stroke(0)
-            fill(0)
-            textSize(20)
-            text("Forest Dash",350,100,100,200)
-            //play
-            fill(64,224,208)
-            rectMode(CENTER)
-            rect(400,250,150,75)
-            fill(0)
-            textSize(20)
-            text("Click to Play",400,250,50,75)
-            //Forest Day
-            fill(34,139,34)
-            rectMode(CENTER)
-            rect(150,450,200,100)
-            fill(0)
-            textSize(32)
-            text("Forest(Day)",150,450,150,100)
-            //Forest Night
-            fill(72,61,139)
-            rectMode(CENTER)
-            rect(550,450,200,100)
-            fill(0)
-            textSize(32)
-            text("Forest(Night)",540,450,150,100)
+            // background(65,105,225)
+            fill(shade)
+            ellipse(mouseX,mouseY,100,100)
+            
         }
-        function mouseClicked() {
-            if(forest(day)) {
-                //background(Day)
-                background(189,183,107)
-                fill(255,255,0)
-                ellipse(100,100,100,100)
-                fill(153,101,21)
-                rect(0,500,800,100)
-                fill(34,139,34)
-                rect(0,475,800,25)
-                //continued(Day)
-                background(189,183,107)
-                fill(153,101,21)
-                rect(0,5,100)
-                fill(34,139,34)
-                rect(0,475,800,25)
+        strokeWeight(2)
+        function keyPressed() {
+            if (key == 'w' || key == 'W') {
+                fill(shade,255,0)
+                ellipse(mouseX,mouseY,50,50)
             }
-            else {
-            //background(Night)
-            background(147,112,219)
-            fill(255)
-            ellipse(100,100,100,100)
-            fill(106,90,205)
-            rect(0,500,800,100)
-            fill(72,61,139)
-            rect(0,475,800,25)
+            if(key == 'a' || key == 'A') {
+                fill(shade,0,255)
+                ellipse(mouseX,mouseY,50,50)
             }
-            //avatar
-            // if(start) {
-            //     fill(100,149,237)
-            //     rect(0,425,50,50)
-            //     fill(0)
-            //     rect(10,450,20,20)
-            // }   
+            if (key == 's' || key == 'S') {
+                fill(shade +255,0,0)
+                ellipse(mouseX,mouseY,50,50)
+            }
+            else if(key == 'd' || key == 'D') {
+                fill(shade +255,255,0)
+                ellipse(mouseX,mouseY,50,50)
+            }
         }
     </script>
 </head>
