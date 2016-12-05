@@ -14,26 +14,32 @@
         function draw() {
         }
         function keyPressed(){
+            //green
             if (key == 'w' || key == 'W') {
                 fill(shade,255,0)
                 ellipse(mouseX,mouseY,100,100)
             }
+            //blue
             if(key == 'a' || key == 'A') {
                 fill(shade,0,255)
                 ellipse(mouseX,mouseY,100,100)
             }
+            //red
             if (key == 's' || key == 'S') {
                 fill(shade + 255,0,0)
                 ellipse(mouseX,mouseY,100,100)
             }
+            //yellow
             else if(key == 'd' || key == 'D') {
                 fill(shade + 255,255,0)
                 ellipse(mouseX,mouseY,100,100)
             }
+            //black
             if(key == 'z' || key == 'Z') {
                 fill(shade)
                 ellipse(mouseX,mouseY,100,100)
             }
+            //white
             else if(key == 'x' || key == 'X') {
                 fill(shade + 255)
                 ellipse(mouseX,mouseY,100,100)
