@@ -5,13 +5,13 @@
     <title>Pong</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.13/p5.js"></script>
     <script>
-        var ballX;
-        var ballY;
-        var ballSpeedX = 5;
-        var ballSpeedY = 5;
-        var paddleHeight = 30;
-        var shade
-        var paddleWidth = 200
+        var ballX; //x-location of the ball
+        var ballY; // y-location of the ball
+        var ballSpeedX = 5; // speed of the ball horizontally
+        var ballSpeedY = 5; // speed of the ball vertically
+        var paddleHeight = 30; //height of the paddle
+        var score = 0 //scoreboard
+        var paddleWidth = 200 //width of the paddle
 
         function setup() {
             createCanvas(800, 600);
@@ -23,40 +23,44 @@
 
         function draw() {
             background(128); //so the ball won't leave a trail
-            moveBall();
-            checkCollide();
-            drawPaddle();
-            drawBall();
-            text("")
+            moveBall(); // ball moves in X and Y directions
+            checkCollide(); // checks for collision with walls or paddle
+            drawPaddle(); // re-draws paddle
+            drawBall(); // re-draws ball
+            textSize(20)
+            text("Score: " + score, 75,75)
         }
-
         function moveBall() { //movement of ball
-            ballX = ballX + ballSpeedX;
-            ballY = ballY + ballSpeedY;
+            ballX = ballX + ballSpeedX; // updates ball location horizontally
+            ballY = ballY + ballSpeedY; // updates ball location vertically
 
             console.log("ballSpeedX: " + ballSpeedX + //checking the speed of the ball
                 ", ballSpeedY: " + ballSpeedY);
         }
 
         function checkCollide() {
+            //left/right edges
             if (ballX < 0 || ballX > width) { //if the ball toches the left edge or the right edge
-                ballSpeedX = ballSpeedX * -1; //reverse speed
+                ballSpeedX = ballSpeedX * -1; //switch x direction
 
             }
+            // top edge
             if (ballY < 0) {
-                ballSpeedY = ballSpeedY * -1; //reverse speed
-                constrain(ballSpeedX += random(-10))
+                ballSpeedY = ballSpeedY * -1; //switch y direction
+                constrain(ballSpeedX += random(-10)) //speed of the ball in the x-axis
             }
-            if (ballY > height - paddleHeight) { //when the ball touches the paddle
+            //paddle
+            if (ballY > height - paddleHeight) { //when the ball is within the paddle horizontally
                 if (ballX > mouseX && ballX < mouseX + 200) {
-                    ballSpeedY = ballSpeedY * -1;
-                    constrain(ballSpeedY += random(-10))
-                    paddleWidth -= 10
+                    ballSpeedY = ballSpeedY * -1; //switch y direction
+                    constrain(ballSpeedY += random(-10)) //speed of the ball in the y-axis
+                    paddleWidth -= 10 //paddle gets shorter
+                    score = score + 1 //score increase when ball toches paddle
                 }
                 else {
                     textSize(32)
                     fill(0)
-                    text("GAME OVER!", width / 2, height / 2); //when ball does nottouch the paddle
+                    text("GAME OVER!", width / 2, height / 2); //when ball does not touch the paddle
                     noLoop(); //no repeating again
                 }
             }
@@ -65,7 +69,6 @@
 
         function drawBall() { //function to draw ball
             noStroke();
-            // fill(135,206,235)
             ellipse(ballX, ballY, 20, 20);
         }
 
@@ -73,7 +76,6 @@
             strokeWeight(4);
             fill(255)
             rect(mouseX, height - paddleHeight - 4, paddleWidth, paddleHeight);
-            rect(mouseX, 0, paddleWidth, paddleHeight)
         }
     </script>
 </head>
@@ -86,7 +88,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script>
         $(window).bind("load", function() {
-            $('#code').before($('#defaultCanvas0').remove());
+            $('#code').before($('#defaultCanvas').remove());
         });
     </script>
     <form><input TYPE="button" onClick="history.go(0)" value="Reset"></form>
