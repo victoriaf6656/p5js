@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+    <title>Colored Bubbles</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.13/p5.js"></script>
+    <script>
+
+        function setup() {
+            createCanvas(500, 500);
+        }
+
+        function draw() {
+            background(176,196,222);
+            //start
+            textSize(20)
+            fill(0)
+            text("Click S to start the game!", 100, 100, 250, 200)
+        }
+
+        //snake
+        function Snake() {
+            this.alive = true
+            this.x = 150
+            this.y = 100
+            this.move = function keyPressed() {
+                if (keyCode == UP_ARROW) {
+                    this.y = mouseY + 5
+                }
+                else if (keyCode == DOWN_ARROW) {
+                    this.y = mouseY - 5
+                }
+                if(keyCode == RIGHT_ARROW) {
+                    this.x = mouseX - 5
+                }
+                else if(keyCode == LEFT_ARROW) {
+                    this.x = mouseX -5
+                }
+            }
+            this.display = function() {
+                fill(255, 0, 0)
+                rect(random(250),random(250),50,50)
+            }
+            this.checkCollide = function() {
+                if (t) {    
+
+                }
+            }
+        }                
+        function Apple() {
+            this.alive = true
+            this.x = 200
+            this.y = 250
+            
+            this.move = function() {
+                this.x += 50
+                this.y = random(250)
+            }
+            this.dsiplay = function() {
+                fill(0,255,0)
+                rect(random(500),random(400), 50,50)
+            }
+        }
+        function keyTyped() {
+            if(key == 's'|| key == 'S') {
+                background(0)
+                fill(65,105,225)
+                rect(0,0,width,50)
+                rect(500,0,height,50)
+                rect(500,500,width,100)
+                rect(0,500,height,50)
+            }
+           
+        }
+    </script>
+</head>
+
+<body>
+    <div id="code" class="container-fluid">
+        <script src="https://gist-it.appspot.com/github/victoriaf6656/p5js/blob/gh-pages/snake.html?footer=0"></script>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script>
+        $(window).bind("load", function() {
+            $('#code').before($('#defaultCanvas').remove());
+        });
+    </script>
+</body>
+
+
+</html>
