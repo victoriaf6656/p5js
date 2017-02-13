@@ -2,75 +2,130 @@
 <html>
 
 <head>
-    <title>Colored Bubbles</title>
+    <title></title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.13/p5.js"></script>
     <script>
+        var cars = [] //cars array
+        var apples = [] //apples array
+        var snake1 //ONLY one snake
+        var score = 0
+        var highScore = 0
 
         function setup() {
             createCanvas(500, 500);
+            for (var i = 0; i < 5; i++) {
+                cars.push(new Car()); //automatically make 5 cars to the array
+            }
+            for (var i = 0; i < 10; i++) {
+                apples.push(new Apple()) //automatically make 10 apples to the array
+            }
+            snake1 = new Snake()
         }
 
         function draw() {
-            background(176,196,222);
-            //start
-            textSize(20)
-            fill(0)
-            text("Click S to start the game!", 100, 100, 250, 200)
+            background(210); //gray
+            //cars
+            for (var i = 0; i < cars.length; i++) {
+                cars[i].move();
+                cars[i].display();
+            }
+            //apples
+            for (var i = 0; i < apples.length; i++) {
+                apples[i].display()
+            }
+            //snake 
+            snake1.move()
+            snake1.display()
+            snake1.checkCollide()
+                //score(red)
+            text("Score: " + score, 20, 40); //score the number of apples the snake collide
+            text("High Score: " + highScore, 20, 80); //update score
         }
+        //cars
+        function Car() {
+            this.x = random(width / 2) //random x-axis of cars
+            this.y = random(height / 2) //random y-axis of cars
+            this.speed = random(0, 6); //random speed
 
+            this.move = function() {
+                this.x += this.speed; //add speed when x-axis increase
+                if (this.x > width) { //when xiaxis goes out of bounds
+                    this.x = 0; //go back to beginning
+                }
+            }
+
+            this.display = function() { //how the cars look like
+                rect(this.x, this.y, 100, 20);
+            }
+
+        }
         //snake
         function Snake() {
-            this.alive = true
-            this.x = 150
-            this.y = 100
+            this.x = 250 //x-axis of snake
+            this.y = 400 //y-axis of snake
+            this.speed = 1.5 //speed of snake
             this.move = function keyPressed() {
+                if (keyCode == LEFT_ARROW) {
+                    this.x -= 10 //left arrow = snake moves to the left
+                }
+                else if (keyCode == RIGHT_ARROW) {
+                    this.x += 10 //right arrow = snake moves to the right
+                }
                 if (keyCode == UP_ARROW) {
-                    this.y = mouseY + 5
+                    this.y -= 10 //up arrow = snake moves up
                 }
                 else if (keyCode == DOWN_ARROW) {
-                    this.y = mouseY - 5
+                    this.y += 10 //down arrow = snake moves down
                 }
-                if(keyCode == RIGHT_ARROW) {
-                    this.x = mouseX - 5
+                else {
+                    return false //make sure that the screen doesn't go up/down/left/right
                 }
-                else if(keyCode == LEFT_ARROW) {
-                    this.x = mouseX -5
-                }
+
+
             }
-            this.display = function() {
-                fill(255, 0, 0)
-                rect(random(250),random(250),50,50)
+            this.display = function() { //how the snake look like
+                fill(176, 196, 222) //light blue
+                rect(this.x, this.y, 25, 50)
             }
             this.checkCollide = function() {
-                if (t) {    
-
+                
+                //score
+                if (score > highScore) {
+                    score = highScore
+                    background(0) //black
+                    fill(255) //white
+                    textSize(20)
+                    text("Congradulations! You got a new high score!", 200, 200, 400, 400)
                 }
-            }
-        }                
-        function Apple() {
-            this.alive = true
-            this.x = 200
-            this.y = 250
-            
-            this.move = function() {
-                this.x += 50
-                this.y = random(250)
-            }
-            this.dsiplay = function() {
-                fill(0,255,0)
-                rect(random(500),random(400), 50,50)
+                else if (score < highScore) {
+                    return false
+                }
+                //Game Over
+                
+                if (this.x < 0 || this.x > width) { //when x-axis goes out of bounds
+                    background(0)
+                    fill(255)
+                    textSize(20)
+                    text("Game Over", 250, 200)
+                }
+                if (this.y < 0 || this.y > height) { //when y-axis goes out of bounds
+                    background(0)
+                    fill(255)
+                    textSize(20)
+                    text("Game Over", 250, 200)
+                }
+
+
             }
         }
-        function keyTyped() {
-            if(key == 's'|| key == 'S') {
-                background(0)
-                fill(65,105,225)
-                rect(0,0,width,50)
-                rect(500,0,height,50)
-                rect(500,500,width,100)
-                rect(0,500,height,50)
+        //apples
+        function Apple() {
+            this.x = random(400) //random x-axis within 400
+            this.y = random(350) //random y-axis within 350
+            this.display = function() { //how the apples look like
+                fill(255, 0, 0) //red
+                ellipse(this.x, this.y, 15, 15)
             }
-           
         }
     </script>
 </head>
