@@ -1,0 +1,83 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+    <title>p5js Template</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.3/p5.js"></script>
+
+    <script>
+        var timer;
+        var colors = [
+            [255, 0, 0],
+            [0, 255, 0]
+        ]; // 2 arrays in one, [red],[green]
+        var color = 0; // set to 0
+        var stopTime = false; //time start
+
+        function setup() {
+            createCanvas(800, 600);
+            textSize(25);
+            timer = 200; //time limit
+
+        }
+
+        function run_timer() {
+            color = random(colors); // between red and green
+            background(color[0], color[1], color[2]); // takes the numbers from one of the arrays and sets it as background
+            fill(255);
+            text("Timer = " + timer, 20, 30);
+            timer -= 1; //lose 1 mili-second
+
+        }
+
+        function draw() {
+            //win strategy
+            if (keyIsPressed && keyCode == UP_ARROW) {
+                stopTime = true; // time not running
+                if (color[1] == 255) // the first position of one out of the two arrays equals 255
+                {
+                    background(color[0], color[1], color[2]);
+                    stroke(255);
+                    textSize(40);
+                    text("You have won!", width / 4, height / 2);
+                }
+                //lose, but given another chance
+                else {
+                    stroke(0);
+                    text("Too bad, try again.", width / 4, height / 2)
+                }
+            }
+            if (stopTime == false) // still time
+            {
+                run_timer();
+            }
+            //Game Over
+            if (timer == 0) {
+                stopTime = true;
+                background(0);
+                stroke(255);
+                fill(255);
+                text("Time is up. You fail to choose a color.", width / 4, height / 2);
+            }
+
+
+        }
+    </script>
+</head>
+
+<body>
+    <form><input TYPE="button" onClick="history.go(0)" value="Play Again"></form>
+    <div id="code" class="container-fluid">
+        <script src="https://gist-it.appspot.com/github/jessicac3732/p5js/blob/gh-pages/chance.html?footer=0"></script>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script>
+        $(window).bind("load", function() {
+            $('#code').before($('#defaultCanvas0').remove());
+        });
+    </script>
+</body>
+
+
+</html>
